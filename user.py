@@ -16,7 +16,6 @@ def user_exist(name):
         with open('users.csv', 'r') as save_file :
             users_reader = csv.reader(save_file, delimiter=';')
             for row in users_reader :
-                print(row[0])
                 if row[0] == name :
                     return True
     except :
