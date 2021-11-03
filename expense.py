@@ -1,4 +1,5 @@
 from PyInquirer import prompt
+import csv
 
 expense_questions = [
     {
@@ -21,9 +22,18 @@ expense_questions = [
 
 
 
+  #  with open('eggs.csv', 'w', newline='') as csvfile:
+   #     spamwriter = csv.writer(csvfile, delimiter=' ',
+    #                        quotechar='|', quoting=csv.QUOTE_MINIMAL)
+     #   spamwriter.writerow(['Spam'] * 5 + ['Baked Beans'])
+      #  spamwriter.writerow(['Spam', 'Lovely Spam', 'Wonderful Spam'])
+
 def new_expense(*args):
     infos = prompt(expense_questions)
-    # Writing the informations on external file might be a good idea ¯\_(ツ)_/¯
+
+    with open('expense_report.csv', 'a', newline='') as save_file : # Open with append to prevent erasing content + adding new expanses at the end.
+        expense_writer = csv.writer(save_file, delimiter=';')
+        expense_writer.writerow([infos['amount']] +  [infos['label']] + [infos['spender']])
     print("Expense Added !")
     return True
 
