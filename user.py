@@ -11,13 +11,13 @@ user_questions = [
 
 # On vérifie si l'utilisateur existe pour ne pas avoir des noms en doublon
 # Mode r avec catch => ne pas planter si le ficher n'existe pas, il faut le créer dans ce cas ce qui est fait en ouverture a après.
-# 
 def user_exist(name):
     try :
         with open('users.csv', 'r') as save_file :
-            users = save_file.readlines()
-            for line in users :
-                if line == name :
+            users_reader = csv.reader(save_file, delimiter=';')
+            for row in users_reader :
+                print(row[0])
+                if row[0] == name :
                     return True
     except :
         return False

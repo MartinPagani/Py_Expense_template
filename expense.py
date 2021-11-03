@@ -1,6 +1,17 @@
 from PyInquirer import prompt
 import csv
 
+# Fetching user list for expense_questions
+def user_options() :
+    user_options_list = []
+    with open('users.csv', 'r', newline='') as user_file :
+        user_reader = csv.reader(user_file, delimiter=';')
+        for row in user_reader :
+            user_options_list.append(row[0]) #Elseway adding list of list, breaking the engine.
+    return user_options_list
+  
+
+
 expense_questions = [
     {
         "type":"input",
@@ -13,20 +24,16 @@ expense_questions = [
         "message":"New Expense - Label: ",
     },
     {
-        "type":"input",
+        "type":"list",
         "name":"spender",
-        "message":"New Expense - Spender: ",
+        "message":"Which user is the spender ? ",
+        "choices": user_options(),
     },
 
 ]
 
 
 
-  #  with open('eggs.csv', 'w', newline='') as csvfile:
-   #     spamwriter = csv.writer(csvfile, delimiter=' ',
-    #                        quotechar='|', quoting=csv.QUOTE_MINIMAL)
-     #   spamwriter.writerow(['Spam'] * 5 + ['Baked Beans'])
-      #  spamwriter.writerow(['Spam', 'Lovely Spam', 'Wonderful Spam'])
 
 def new_expense(*args):
     infos = prompt(expense_questions)

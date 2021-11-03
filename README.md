@@ -20,7 +20,6 @@ Cheating is allowed, but getting catched isn't
 Creation of new files is recommended. Clean architectures will be rewarded
 A `tests` folder has been created along with a test example. Look at noted documentation in order to learn more about unit testing
 ## Todo-list
-- [ ] When adding a new expense, Spender should be chosen among existing users
 - [ ] An expense can be divided between several existing users. By default, total amount of the expense will be evenly split between all involved users and spender should automatically be checked as involved in the expense
 - [ ] New mandatory expense information : People involved in the expense
 - [ ] A status report can be accessed from the main menu, synthesizing who owes who. Every user must appear only once in the report, so you must synthesize reimbursements. 
@@ -39,5 +38,5 @@ Exemple: 3 Users :
 - [+] A new expense can be added (Mandatory expense information : Amount, label, Spender)
 - [+] Expense registry is stored in an external file on an appropriate format for persistency (CSV is fine, any other relevant format would be cool)
 - [+] A new user can be created (Mandatory user information : Name)
-- [/] Users are stored in an external file for persistency
-# Users are stored, but duplication prevention apparently doesn't work.
+- [+] Users are stored in an external file for persistency
+- [+] When adding a new expense, Spender should be chosen among existing users
