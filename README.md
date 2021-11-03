@@ -20,11 +20,7 @@ Cheating is allowed, but getting catched isn't
 Creation of new files is recommended. Clean architectures will be rewarded
 A `tests` folder has been created along with a test example. Look at noted documentation in order to learn more about unit testing
 ## Todo-list
-- [ ] A status report can be accessed from the main menu, synthesizing who owes who. Every user must appear only once in the report, so you must synthesize reimbursements. 
-Exemple: 3 Users :
-- User1 owes 34,56€ to User2
-- User2 owes nothing
-- User3 owes 14,72€ to User2
+
 - [ ] Add the possibility to mark a debt as payed from the status report 
 - [ ] Think of new ways of spliting the expense (Percentage / person, Amount / person, anything that makes sense)
 - [ ] User Input Validation : Throw an error if an expense amount is not a number, and so on ..
@@ -42,3 +38,8 @@ Exemple: 3 Users :
 # Just save the involved users list + added calculate_balance function.
 - [+] New mandatory expense information : People involved in the expense
 # cf previous one
+- [+] A status report can be accessed from the main menu, synthesizing who owes who. Every user must appear only once in the report, so you must synthesize reimbursements. 
+Exemple: 3 Users :
+- User1 owes 34,56€ to User2
+- User2 owes nothing
+- User3 owes 14,72€ to User2

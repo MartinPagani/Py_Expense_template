@@ -35,4 +35,26 @@ def calc_balance():
                 user_balance[spender] += amount
 
     print("Balance Calculated !")
-    return user_balance
+    return user_balance, user_list
+
+def status_report() :
+    balance, user_list = calc_balance()
+    print('There are ' + str(len(user_list)) + 'users')
+    positive = []
+    negative = []
+    for user in user_list :
+        if balance[user] < 0 :
+            negative.append(user)
+        elif balance[user] > 0 :
+            positive.append(user)
+    
+    while not(len(negative) == 0) :
+        balance[positive[0]] -= balance[negative[0]]
+        print('User ' + negative[0] + ' owes ' + str(-balance[negative[0]]) + ' to ' + positive[0])
+        negative.pop(0)
+        if balance[positive[0]] < 0 :
+            negative.append(positive.pop(0))
+        elif balance[positive[0]] == 0 :
+            positive.pop(0)
+    return
+
